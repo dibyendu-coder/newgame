@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Refresher Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 Mind Refresher Game</h1>
+            <p>Test your memory and concentration!</p>
+        </header>
+
+        <main>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Combo:</span>
+                    <span class="stat-value" id="combo">0</span>
+                </div>
+            </div>
+
+            <div class="game-mode-selector" id="gameModeSelector">
+                <h2>Choose a Game Mode:</h2>
+                <button class="mode-btn" onclick="startGame('memory')">
+                    <span class="mode-icon">🧠</span>
+                    <span class="mode-title">Memory Match</span>
+                    <span class="mode-desc">Match pairs of cards</span>
+                </button>
+                <button class="mode-btn" onclick="startGame('sequence')">
+                    <span class="mode-icon">📊</span>
+                    <span class="mode-title">Sequence</span>
+                    <span class="mode-desc">Repeat the sequence</span>
+                </button>
+                <button class="mode-btn" onclick="startGame('quiz')">
+                    <span class="mode-icon">❓</span>
+                    <span class="mode-title">Quick Quiz</span>
+                    <span class="mode-desc">Answer questions fast</span>
+                </button>
+            </div>
+
+            <!-- Memory Match Game -->
+            <div class="game-container" id="memoryGame" style="display: none;">
+                <h2>Memory Match</h2>
+                <div class="memory-grid" id="memoryGrid"></div>
+                <button class="btn btn-reset" onclick="resetGame()">Reset Game</button>
+            </div>
+
+            <!-- Sequence Game -->
+            <div class="game-container" id="sequenceGame" style="display: none;">
+                <h2>Sequence Game</h2>
+                <div class="sequence-display" id="sequenceDisplay">
+                    <p id="sequenceMsg">Watch the sequence...</p>
+                </div>
+                <div class="sequence-buttons">
+                    <button class="seq-btn" onclick="userSequence(0)" style="background: #FF6B6B;">Red</button>
+                    <button class="seq-btn" onclick="userSequence(1)" style="background: #4ECDC4;">Blue</button>
+                    <button class="seq-btn" onclick="userSequence(2)" style="background: #FFE66D;">Yellow</button>
+                    <button class="seq-btn" onclick="userSequence(3)" style="background: #95E1D3;">Green</button>
+                </div>
+                <button class="btn btn-reset" onclick="resetGame()">Reset Game</button>
+            </div>
+
+            <!-- Quiz Game -->
+            <div class="game-container" id="quizGame" style="display: none;">
+                <h2>Quick Quiz</h2>
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <button class="btn btn-reset" onclick="resetGame()">Reset Game</button>
+            </div>
+
+            <div class="game-over" id="gameOver" style="display: none;">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <p>Level Reached: <span id="finalLevel">1</span></p>
+                <button class="btn btn-primary" onclick="backToMenu()">Play Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Keep your mind fresh and sharp! 🎮</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
